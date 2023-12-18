@@ -1,6 +1,9 @@
 html {
     background-color: seagreen;
-    font-size: 20px;
+    font-size: 20px; /* px значит 'пиксели': базовый шрифт будет 10 пикселей в высоту  */
+    /* font-family: 'Didact Gothic', sans-serif;
+    font-family: 'Questrial', sans-serif;
+    font-family: 'Roboto', sans-serif; */
     font-family: 'Roboto Slab', serif;
 }
 body{
@@ -15,17 +18,11 @@ a{
   color:#f4f4ef;
 }
 
-#grid{
-  display: grid;
-  height: 100%;
-  grid-template-rows: repeat(24, auto);
-  grid-template-columns: repeat(24, 1fr);
-  flex-direction: column;
-  
-}
 
 #logo{
-  display: block;
+  display: flexbox;
+  flex: 1;
+  
   margin-left: auto;
   margin-right: auto;
 
@@ -46,78 +43,90 @@ a{
   height: auto;
 }
 
+.flexrow{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    min-height: 56.4%;
+}
+
+.flexcolumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+#middle{
+    flex: 2;
+}
+
+#last{
+    flex: 1;
+}
+
 #block1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: space-between;
   background-color: #A01D26;
-  grid-row: 1/7;
-  grid-column: 1/-1;
 }
 
 #block2{
+    display: flex;
+    flex: 1;
   background-color: #20232a;
   color: #f4f4ef;
   text-align: center;
   justify-content: center;
-  grid-row:7/19;
-  grid-column: 1/7;
 }
 
 #block3{
-  display: flex;
-  flex-direction: column;
+    display: flexbox;
   background-color: #acbebe;
   text-align: center;
   justify-content: center;
-  grid-row: 7/9;
-  grid-column: 7/19;
 }
 
 #block4{
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex: 9;
   background-color: #20232a;
   color:#f4f4ef;
   text-align: center;
   justify-content: center;
-  grid-row: 7/17;
-  grid-column: 19/-1;
+  align-items: center;
 }
 
 #block5{
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    min-height: auto;
+    flex-grow: 1;
   background-color: #f4f4ef;
   font-size: large;
   text-align: center;
   justify-content: center;
-  grid-row: 9/19;
-  grid-column: 7/19;
 }
 
 #block6{
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex: 1;
   background-color: #acbebe;
   text-align: center;
   justify-content: center;
-  grid-row: 17/19;
-  grid-column: 19/-1;
 }
 
 #block7{
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
   background-color: #A01D26;
-  text-align: center;
-  justify-content: center;
-  grid-row: 19/-1;
-  grid-column: 1/-1;
+  text-align: start;
+  justify-content: space-between;
+  padding-right: 5%;
 }
 
 .blocks{
-  display: flex;
   align-items: center;
   padding: 5px;
   flex-shrink: 0;
@@ -126,28 +135,31 @@ a{
 }
 
 #text1{
-  display: flex;
-  align-items: center;
+  display: flexbox;
+  flex: 5;
   justify-content: end;
   text-align: end;
   word-break: break-word;
 
   padding: 5px;
-  grid-row: 1/7;
-  grid-column: 18/-1;
   flex-shrink: 0;
 }
 
+#forbox{
+    flex: 5;
+}
+
 #box1{
-  display: flex;
+  display: flexbox;
   text-align: start;
   align-items: center;
   background-color: #f4f4ef;
   height: max-content;
+  width: fit-content;
+  max-width: 60%;
   word-break: break-word;
   
-  grid-row: 3/5;
-  grid-column: 2/8;
+  margin-left: 10%;
   flex-shrink: 0;
   margin-top: 4.17%;
   margin-bottom: 4.17%;
@@ -158,8 +170,7 @@ a{
   align-items: center;
   justify-content: start;
   padding: 5px;
-  grid-row: 21/23;
-  grid-column: 1/9;
+  max-width: 40%;
 }
 
 #box2{
@@ -169,11 +180,11 @@ a{
   justify-content: center;
   padding: 5px;
   background-color: #f4f4ef;
-  grid-row: 21/23;
-  grid-column: 18/-2;
   word-break: break-word;
   flex-wrap: wrap;
   height: min-content;
+  width: fit-content;
+  max-width: 25%;
   flex-shrink: 0;
   margin-top: 4.17%;
   margin-bottom: 4.17%;
